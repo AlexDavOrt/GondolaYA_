@@ -1,0 +1,268 @@
+/* =================================================================
+   GONDOLAYA — PÁGINA DE RESULTADOS
+   Usa las variables y componentes de estilo.css (navbar, botones,
+   buscador del hero, footer). Acá solo van los bloques nuevos.
+   ================================================================= */
+
+.results{
+  padding:32px 0 72px;
+  min-height:70vh;
+  background:linear-gradient(180deg, #FFFFFF 0%, var(--bg-soft) 100%);
+}
+
+.results__search{margin:0 auto 32px;}
+
+/* ---------- encabezado ---------- */
+.results__head{
+  text-align:center;
+  margin-bottom:28px;
+}
+.results__title{
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:clamp(24px, 2vw + 18px, 34px);
+  letter-spacing:-0.02em;
+  color:var(--ink-900);
+  margin:0 0 10px;
+  word-break:break-word;
+}
+.results__title-term{color:var(--green-600);}
+.results__meta{
+  margin:0;
+  font-size:15px;
+  color:var(--ink-500);
+}
+
+/* ---------- avisos ---------- */
+.results__notice{
+  max-width:860px;
+  margin:0 auto 20px;
+  padding:14px 18px;
+  border-radius:var(--radius-md);
+  font-size:14.5px;
+  line-height:1.55;
+  border:1.5px solid var(--line);
+  background:#fff;
+  color:var(--ink-700);
+}
+.results__notice p{margin:0;}
+.results__notice--warn{
+  background:#FFF8EB;
+  border-color:#F4D9A6;
+  color:#7A5514;
+}
+.results__notice--info{text-align:center;}
+
+/* ---------- destacado: precio más barato ---------- */
+.results__best{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  max-width:860px;
+  margin:0 auto 24px;
+  padding:20px;
+  background:var(--green-50);
+  border:1.5px solid var(--green-500);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-card);
+}
+.results__best-icon{
+  flex-shrink:0;
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--green-500);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.results__best-icon svg{width:22px;height:22px;}
+.results__best-label{
+  margin:0 0 4px;
+  font-family:'Manrope',sans-serif;
+  font-weight:700;
+  font-size:clamp(17px, 1vw + 14px, 22px);
+  color:var(--ink-900);
+}
+.results__best-price{
+  color:var(--green-600);
+  font-weight:800;
+}
+.results__best-detail{
+  margin:0;
+  font-size:14.5px;
+  color:var(--ink-700);
+}
+
+/* ---------- lista ---------- */
+.results__list{
+  list-style:none;
+  margin:0 auto;
+  padding:0;
+  max-width:860px;
+  display:grid;
+  gap:14px;
+}
+
+.result-card{
+  display:grid;
+  grid-template-columns:76px 1fr;
+  grid-template-areas:
+    "image body"
+    "price price";
+  gap:12px 16px;
+  align-items:center;
+  padding:16px;
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:var(--radius-md);
+  transition:box-shadow .15s ease, border-color .15s ease;
+}
+.result-card:hover{box-shadow:var(--shadow-card);}
+.result-card--best{
+  border-color:var(--green-500);
+  background:linear-gradient(180deg, #FFFFFF 0%, var(--green-50) 100%);
+}
+
+.result-card__image{
+  grid-area:image;
+  width:76px;height:76px;
+  border-radius:var(--radius-sm);
+  background:var(--bg-soft);
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+.result-card__image img{
+  width:100%;height:100%;
+  object-fit:contain;
+}
+.result-card__no-image{
+  font-size:11px;
+  color:var(--ink-300);
+  text-align:center;
+}
+
+.result-card__body{grid-area:body;min-width:0;}
+.result-card__badge{
+  display:inline-block;
+  margin-bottom:6px;
+  padding:3px 10px;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:0.02em;
+  color:#fff;
+  background:var(--green-500);
+  border-radius:var(--radius-pill);
+}
+.result-card__name{
+  margin:0 0 4px;
+  font-family:'Manrope',sans-serif;
+  font-weight:700;
+  font-size:16px;
+  line-height:1.35;
+  color:var(--ink-900);
+}
+.result-card__brand{
+  margin:0 0 8px;
+  font-size:13px;
+  color:var(--ink-500);
+}
+.result-card__store{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--ink-700);
+}
+.result-card__store img{
+  width:22px;height:22px;
+  object-fit:contain;
+}
+
+.result-card__price{
+  grid-area:price;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-top:12px;
+  border-top:1px dashed var(--line);
+}
+.result-card__price-value{
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:24px;
+  letter-spacing:-0.02em;
+  color:var(--ink-900);
+}
+.result-card--best .result-card__price-value{color:var(--green-600);}
+.result-card__link{
+  font-size:13px;
+  font-weight:600;
+  color:var(--ink-500);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.result-card__link:hover{color:var(--green-600);}
+
+/* ---------- sin resultados ---------- */
+.results__empty{
+  max-width:560px;
+  margin:24px auto 0;
+  padding:32px 24px;
+  text-align:center;
+  background:#fff;
+  border:1.5px solid var(--line);
+  border-radius:var(--radius-lg);
+}
+.results__empty-title{
+  margin:0 0 10px;
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  font-size:20px;
+  color:var(--ink-900);
+  word-break:break-word;
+}
+.results__empty-text{
+  margin:0 0 20px;
+  font-size:15px;
+  line-height:1.6;
+  color:var(--ink-500);
+}
+
+.results__source{
+  max-width:860px;
+  margin:28px auto 0;
+  font-size:12.5px;
+  line-height:1.5;
+  text-align:center;
+  color:var(--ink-500);
+}
+
+/* ---------- tablet / desktop ---------- */
+@media (min-width:640px){
+  .result-card{
+    grid-template-columns:96px 1fr auto;
+    grid-template-areas:"image body price";
+    gap:20px;
+    padding:18px 22px;
+  }
+  .result-card__image{width:96px;height:96px;}
+  .result-card__price{
+    flex-direction:column;
+    align-items:flex-end;
+    justify-content:center;
+    padding-top:0;
+    border-top:none;
+    min-width:150px;
+  }
+  .result-card__price-value{font-size:28px;}
+  .results__best{padding:24px 28px;}
+}
+
+/* El atributo hidden debe ganarle a los display:flex/grid de arriba */
+.results [hidden]{display:none !important;}
